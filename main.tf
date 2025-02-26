@@ -85,7 +85,7 @@ resource "aws_route_table" "private_rt1" {
   vpc_id = aws_vpc.my_vpc.id
 
   route {
-    cidr_block = "8.0.0.0/0"
+    cidr_block = "0.0.0.0/0"
     gateway_id = aws_nat_gateway.natgw1.id
   }
 
