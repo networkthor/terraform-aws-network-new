@@ -4,7 +4,7 @@ resource "aws_vpc" "my_vpc" {
 
   tags = merge({
     Name = "${var.environment}-vpc"
-    Type = "Education"
+    Type = "production"
   }, var.tags)
 }
 
@@ -13,7 +13,7 @@ resource "aws_internet_gateway" "igw" {
 
   tags = merge({
     Name = "${var.environment}-igw"
-    Type = "Education"
+    Type = "production"
   }, var.tags)
 }
 
@@ -27,7 +27,7 @@ resource "aws_subnet" "public_subnets" {
 
   tags = merge({
     Name = "${var.environment}-public-subnet-${count.index}"
-    Type = "Education"
+    Type = "production"
   }, var.tags)
 }
 
@@ -42,7 +42,7 @@ resource "aws_subnet" "private_subnets" {
 
   tags = merge({
     Name = "${var.environment}-private-subnet-${count.index}"
-    Type = "Education"
+    Type = "production"
   }, var.tags)
 }
 
@@ -50,7 +50,7 @@ resource "aws_subnet" "private_subnets" {
 resource "aws_eip" "eip1" {
   tags = merge({
     Name = "${var.environment}-eip1"
-    Type = "Education"
+    Type = "production"
   }, var.tags)
 }
 
@@ -60,7 +60,7 @@ resource "aws_nat_gateway" "natgw1" {
 
   tags = merge({
     Name = "${var.environment}-natgw1"
-    Type = "Education"
+    Type = "production"
   }, var.tags)
 
   depends_on = [aws_internet_gateway.igw]
@@ -77,7 +77,7 @@ resource "aws_route_table" "public_rt1" {
 
   tags = merge({
     Name = "${var.environment}-public_rt1"
-    Type = "Education"
+    Type = "production"
   }, var.tags)
 }
 
@@ -91,7 +91,7 @@ resource "aws_route_table" "private_rt1" {
 
   tags = merge({
     Name = "${var.environment}-private_rt1"
-    Type = "Education"
+    Type = "production"
   }, var.tags)
 }
 
